@@ -163,8 +163,19 @@ bindsym $mod+Control+u exec --no-startup-id light -U 10 # decrease screen bright
 
 
 # screenshot
-bindsym Print exec gnome-screenshot -i
+#bindsym Print exec gnome-screenshot -i
+bindsym Print mode "screenshot"
+mode "screenshot" {
+        
+        bindsym --release f exec scrot '%Y-%m-%d-%H-%M-%S_$wx$h.png' -e 'mv $f ~/Pictures/', mode "default"
+        bindsym --release s exec scrot -s '%Y-%m-%d-%H-%M-%S_$wx$h.png' -e 'mv $f ~/Pictures/', mode "default"
 
+        # return to normal
+
+        bindsym Escape mode "default"
+
+
+}
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -236,7 +247,7 @@ exec --no-startup-id blueman-applet
 
 set $mode_system System (l) lock, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id exec i3lock -i ~/Desktop/A_stormy_stellar_nursery_esa_379309.jpg, mode "default"
+    bindsym l exec --no-startup-id exec i3lock -i ~/Pictures/Wallpapers/cat-waves.png, mode "default"
     bindsym s exec --no-startup-id exec systemctl suspend, mode "default"
     bindsym r exec --no-startup-id exec reboot, mode "default"
     bindsym Shift+s exec --no-startup-id exec poweroff, mode "default"
