@@ -240,7 +240,8 @@ client.unfocused        $darkgray $darkgray $lightgray $purple $darkgray
 client.urgent           $red $red $white $red $red
 
 
-exec xcompmgr -c -f -n
+# exec xcompmgr -c -f -n
+exec --no-startup-id picom --config ~/.config/picom/picom.conf -b
 
 exec_always feh --bg-fill ~/Desktop/A_stormy_stellar_nursery_esa_379309.jpg
 exec --no-startup-id blueman-applet
