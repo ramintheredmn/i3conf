@@ -170,8 +170,8 @@ bindsym $mod+Control+u exec --no-startup-id light -U 10 # decrease screen bright
 bindsym Print mode "screenshot"
 mode "screenshot" {
         
-        bindsym --release f exec scrot '%Y-%m-%d-%H-%M-%S_$wx$h.png' -e 'mv $f ~/Pictures/', mode "default"
-        bindsym --release s exec scrot -s '%Y-%m-%d-%H-%M-%S_$wx$h.png' -e 'mv $f ~/Pictures/', mode "default"
+        bindsym --release f exec scrot '%Y-%m-%d-%H-%M-%S_$wx$h.png' -e 'xclip -selection clipboard -t image/png -i $f && mv $f ~/Pictures/', mode "default"
+        bindsym --release s exec scrot -s '%Y-%m-%d-%H-%M-%S_$wx$h.png' -e 'xclip -selection clipboard -t image/png -i $f && mv $f ~/Pictures/', mode "default"
 
         # return to normal
 
@@ -264,4 +264,5 @@ bindsym $mod+Escape mode "$mode_system"
 
 ## gaps
 
-
+gaps inner 2
+gaps outer 5
